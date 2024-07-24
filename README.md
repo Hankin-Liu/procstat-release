@@ -89,7 +89,7 @@ Run "sh start.sh -h" to get the usage.
         "duration": 1000000  
     }  
 5. profile_stat  
-    Profile a program. Must use command line parameter -p or -t to specify a running process.
+    Profile a program. Must use command line parameter -p or -t to specify a running process.  
     Configuration items:  
     (1) enable     
         true, enable this stat, default value.  
