@@ -141,22 +141,35 @@ Run "sh start.sh -h" to get the usage.
         "lock_duration": 1000000,
         "wait_lock_duration": 1000000
     }
-9. stl_realloc_stat
-    Stat C++ STL realloc info.
-    Configuration items:
-    (1) enable
-        true, enable this stat, default value.
-        false, disable this stat.
-    (2) vector_realloc_duration
-        >=0, if std::vector realloc's duration >= this value(nanosecond), will report it to log file.
-        -1, never report, default value.
-    (3) unordered_map_realloc_duration
-        >=0, if std::unordered_map realloc's duration >= this value(nanosecond), will report it to log file.
-        -1, never report, default value.
-    Example:
-    "lock_stat": {
-        "enable": true
-        "vector_realloc_duration": 1000000,
-        "unordered_map_realloc_duration": 1000000,
-        "desc": "stl realloc stat"
-    }
+9. stl_realloc_stat    
+    Stat C++ STL realloc info.    
+    Configuration items:    
+    (1) enable    
+        true, enable this stat, default value.    
+        false, disable this stat.    
+    (2) vector_realloc_duration    
+        >=0, if std::vector realloc's duration >= this value(nanosecond), will report it to log file.    
+        -1, never report, default value.    
+    (3) unordered_map_realloc_duration    
+        >=0, if std::unordered_map realloc's duration >= this value(nanosecond), will report it to log file.    
+        -1, never report, default value.    
+    (4) unordered_set_realloc_duration    
+        >=0, if std::unordered_set realloc's duration >= this value(nanosecond), will report it to log file.    
+        -1, never report, default value.    
+    (5) vector_realloc_symbol    
+        don't need to configure, procstat will configure it automatically.    
+    (6) unordered_map_realloc_symbol    
+        don't need to configure, procstat will configure it automatically.    
+    (7) unordered_set_realloc_symbol    
+        don't need to configure, procstat will configure it automatically.    
+    Example:    
+    "stl_realloc_stat": {    
+        "enable": true,    
+        "vector_realloc_symbol": "",   
+        "vector_realloc_duration": 0,   
+        "unordered_map_realloc_symbol": "",   
+        "unordered_map_realloc_duration": 0,   
+        "unordered_set_realloc_symbol": "",   
+        "unordered_set_realloc_duration": 0,   
+        "desc": "stl realloc stat"   
+    }   
