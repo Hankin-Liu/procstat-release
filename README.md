@@ -173,3 +173,24 @@ Run "sh start.sh -h" to get the usage.
         "unordered_set_realloc_duration": 0,   
         "desc": "stl realloc stat"   
     }   
+10. gc_stat   
+    Stat gc info for golang or jvm program.   
+    Configuration items:   
+    (1) enable   
+        true, enable this stat, default value.   
+        false, disable this stat.   
+    (2) gc_duration      
+        >=0, if gc duration >= this value(nanosecond), will report it to log file.      
+        -1, never report, default value.      
+    (3) jvm_path      
+        jvm install path, such as /usr/local/jdk. If stats program which running on jvm, Option 1. Specify jvm path. Option 2. Remove this item, will use Linux environment variable "JAVA_HOME".      
+        "", never report jvm gc info.      
+    (4) jvm_gc_symbol      
+        symbol, jvm gc symbol is in jvm. If stats program which running on jvm, Option 1. Specify jvm path. Option 2. Remove this item, will use default one.      
+        "", never report jvm gc info.      
+    Example:      
+    "gc_stat": {      
+        "enable": true,      
+        "gc_duration": 0,      
+        "jvm_path": "/usr/local/jdk"      
+    }      
