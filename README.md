@@ -15,7 +15,7 @@ Supported OS: CentOS Stream 8+、Redhat 8+、Fedora 36+.
 1. procstat depends on eBPF and CORE features.
 2. libelf is need to run procstat.
 3. procstat needs to access internet, it must get authorize from server before working.
-4. nm, cppfilt must be installed in your OS.
+4. readelf, cppfilt must be installed in your OS.
 
 ### Limitation
 Before start this program, please set up below settings.
@@ -182,15 +182,14 @@ Run "sh start.sh -h" to get the usage.
     (2) gc_duration      
         >=0, if gc duration >= this value(nanosecond), will report it to log file.      
         -1, never report, default value.      
-    (3) jvm_path      
-        jvm install path, such as /usr/local/jdk. If stats program which running on jvm, Option 1. Specify jvm path. Option 2. Remove this item, will use Linux environment variable "JAVA_HOME".      
-        "", never report jvm gc info.      
-    (4) jvm_gc_symbol      
-        symbol, jvm gc symbol is in jvm. If stats program which running on jvm, Option 1. Specify jvm path. Option 2. Remove this item, will use default one.      
-        "", never report jvm gc info.      
-    Example:      
-    "gc_stat": {      
-        "enable": true,      
-        "gc_duration": 0,      
-        "jvm_path": "/usr/local/jdk"      
-    }      
+    (3) libjvm_path    
+        path of libjvm.so, such as "/usr/local/jdk/jre/lib/amd64/server/libjvm.so". If stats program which running on jvm, Option 1. Specify path of libjvm.so. Option 2. Remove this item or set it to "", will search some general paths in Linux environment variable "JAVA_HOME".    
+    (4) jvm_gc_symbol    
+        symbol, jvm gc symbol is in jvm. If stats program which running on jvm, Option 1. Specify jvm path. Option 2. Remove this item, will use default one.    
+        "", never report jvm gc info.    
+    Example:    
+    "gc_stat": {    
+        "enable": true,    
+        "gc_duration": 0,    
+        "libjvm_path": ""    
+    }        
